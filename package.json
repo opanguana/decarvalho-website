@@ -1,0 +1,13 @@
+{
+  "name": "decarvalho-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "serve . --listen 5173",
+    "preview": "serve . --listen 4173"
+  },
+  "devDependencies": {
+    "serve": "^14.2.5"
+  }
+}
