@@ -2358,6 +2358,7 @@ body.subpage-baile .impact-consultoria-block--impacto h4 {
 .contact-section {
   background: var(--text);
   color: var(--white);
+  scroll-margin-top: calc(72px + var(--space-md));
 }
 
 .contact-section .section-label {
@@ -3676,7 +3677,7 @@ body.no-copy a[href^="https://wa.me/"] {
 
   /* Formulário de contacto mais apertado */
   .contact-section {
-    padding: 2rem 0;
+    padding: calc(72px + 2rem) 0 2rem;
   }
 
   /* Float CTA subpáginas: ocupa largura toda */

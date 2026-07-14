@@ -67,6 +67,7 @@ function checkCssGuardrails(globalCss, homeCss) {
   requirePattern('Subpage mobile navigation must be present.', globalCss, /\.nav-mobile\s*\{/);
   requirePattern('Homepage mobile navigation must be present.', homeCss, /\.o-nav-mobile\s*\{/);
   requirePattern('Fixed CTAs must have mobile width handling.', combinedCss, /\.o-float-cta[\s\S]*?left:\s*1rem[\s\S]*?right:\s*1rem/);
+  requirePattern('Contact page must offset fixed header on narrow viewports.', globalCss, /\.contact-section\s*\{[\s\S]*?scroll-margin-top:\s*calc\(72px \+ var\(--space-md\)\)[\s\S]*?@media \(max-width: 480px\)[\s\S]*?\.contact-section\s*\{[\s\S]*?padding:\s*calc\(72px \+ 2rem\) 0 2rem/);
 
   const fixedGridMinimums = combinedCss.match(/minmax\(\s*(\d{3,})px\s*,\s*1fr\s*\)/g) || [];
   if (fixedGridMinimums.length > 0) {
