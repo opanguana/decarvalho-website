@@ -1853,7 +1853,7 @@ body.layout-home .o-hero.o-hero--immersive .o-hero-sub {
 }
 
 .o-consultorias-destaque-cta {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -1865,9 +1865,9 @@ body.layout-home .o-hero.o-hero--immersive .o-hero-sub {
   text-decoration: none;
   border-radius: 10px;
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-  width: 100%;
+  width: min(100%, 320px);
   max-width: 320px;
-  margin: 0 auto;
+  margin-inline: auto;
   box-sizing: border-box;
   border: 1px solid rgba(43, 75, 154, 0.2);
   box-shadow: 0 8px 24px rgba(43, 75, 154, 0.28);
@@ -1883,7 +1883,8 @@ body.layout-home .o-hero.o-hero--immersive .o-hero-sub {
 
 @media (min-width: 480px) {
   .o-consultorias-destaque-cta {
-    width: auto;
+    width: fit-content;
+    max-width: 100%;
   }
 }
 

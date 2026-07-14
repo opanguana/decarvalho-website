@@ -72,6 +72,7 @@ function checkCssGuardrails(globalCss, homeCss) {
   requirePattern('Homepage floating CTA must reset subpage mobile offsets.', homeCss, /body\.layout-home \.o-float-cta\s*\{[\s\S]*?right:\s*auto[\s\S]*?bottom:\s*auto[\s\S]*?left:\s*auto[\s\S]*?width:\s*auto/);
   requirePattern('Homepage floating CTA must preserve intrinsic button width.', homeCss, /body\.layout-home \.o-float-cta-btn\s*\{[\s\S]*?width:\s*auto/);
   requirePattern('Homepage credentials grid must avoid mobile min-content overflow.', homeCss, /@media \(max-width: 768px\)[\s\S]*?\.o-credentials-grid\s*\{[\s\S]*?grid-template-columns:\s*repeat\(2,\s*minmax\(0,\s*1fr\)\)/);
+  requirePattern('Consultorias CTA must be centered with block-level flex sizing.', homeCss, /\.o-consultorias-destaque-cta\s*\{[\s\S]*?display:\s*flex[\s\S]*?width:\s*min\(100%,\s*320px\)[\s\S]*?margin-inline:\s*auto/);
   requirePattern('Testimonial carousel overflow must stay scoped to its container.', homeCss, /\.o-testimonials-viewport\s*\{[\s\S]*?overflow:\s*hidden/);
   requirePattern('Partner marquee overflow must stay scoped to its container.', homeCss, /\.o-partners-marquee-wrapper\s*\{[\s\S]*?overflow:\s*hidden/);
   requirePattern('Partner marquee must use compositor-friendly transforms.', homeCss, /\.o-partners-marquee\s*\{[\s\S]*?will-change:\s*transform[\s\S]*?@keyframes o-marquee-scroll[\s\S]*?translate3d/);
