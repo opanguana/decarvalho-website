@@ -5,7 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "serve . --listen 5173",
-    "preview": "serve . --listen 4173"
+    "preview": "serve . --listen 4173",
+    "lint": "node tools/check-project.mjs --lint --format",
+    "format:check": "node tools/check-project.mjs --format",
+    "test": "node tools/check-project.mjs --smoke",
+    "build": "node tools/build-static.mjs"
+  },
+  "engines": {
+    "node": ">=18"
   },
   "devDependencies": {
     "serve": "^14.2.5"
