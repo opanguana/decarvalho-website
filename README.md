@@ -651,13 +651,14 @@ Este projecto está pronto para deploy estático na Vercel.
 |---|---|
 | Framework Preset | `Other` |
 | Root Directory | `.` |
-| Build Command | deixar vazio |
-| Output Directory | deixar vazio |
-| Install Command | `npm install` |
+| Install Command | `npm ci` |
+| Build Command | `npm run build` |
+| Output Directory | `dist` |
 
 ### Configuração incluída
 
 O ficheiro `vercel.json` configura:
+- instalação, build e output directory versionados (`npm ci`, `npm run build`, `dist`);
 - headers básicos de segurança para todas as rotas;
 - cache longo para assets em `css/`, `js/`, `logos/` e `partners/`;
 - URLs com `.html` preservadas, alinhadas com os links existentes.
