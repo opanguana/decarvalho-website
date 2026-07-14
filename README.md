@@ -21,8 +21,9 @@
 13. [Documentação interna (docs/)](#documentação-interna-docs)
 14. [Dependências externas](#dependências-externas)
 15. [Deploy na Vercel](#deploy-na-vercel)
-16. [Como actualizar o conteúdo](#como-actualizar-o-conteúdo)
-17. [Backlog / Próximos passos](#backlog--próximos-passos)
+16. [Dev workflow](#dev-workflow)
+17. [Como actualizar o conteúdo](#como-actualizar-o-conteúdo)
+18. [Backlog / Próximos passos](#backlog--próximos-passos)
 
 ---
 
@@ -683,6 +684,72 @@ npm run dev
 ```
 
 O servidor local fica disponível em `http://localhost:5173`.
+
+---
+
+## Dev workflow
+
+### Requisitos
+
+- Node.js 18 ou superior
+- npm 9 ou superior
+- Git
+
+### Instalar e executar
+
+```bash
+npm ci
+npm run dev
+```
+
+### Validar antes de abrir PR
+
+```bash
+npm run lint
+npm test
+npm run build
+```
+
+O build gera `dist/` apenas como artefacto local/CI. O script recusa sobrescrever um `dist/` que não tenha sido gerado pelo próprio script.
+
+### Branches e PRs
+
+1. Actualizar a branch principal: `git switch main && git pull --ff-only`
+2. Criar uma branch curta e descritiva: `git switch -c tipo/descricao-curta`
+3. Fazer commits pequenos seguindo Conventional Commits: `feat:`, `fix:`, `docs:`, `chore:`, `ci:`
+4. Executar `npm run lint`, `npm test` e `npm run build`
+5. Abrir PR com resumo, validação executada e risco/rollback
+
+### Versionamento e releases
+
+Este projecto usa Semantic Versioning (`MAJOR.MINOR.PATCH`) e tags anotadas no formato `vX.Y.Z`.
+
+- `fix:` incrementa `PATCH`
+- `feat:` incrementa `MINOR`
+- mudanças incompatíveis incrementam `MAJOR` e devem incluir `BREAKING CHANGE:` no corpo do commit
+- actualizar `CHANGELOG.md` antes de criar uma tag
+
+Fluxo de release:
+
+```bash
+git switch main
+git pull --ff-only
+npm ci
+npm run lint
+npm test
+npm run build
+git tag -a vX.Y.Z -m "Release vX.Y.Z"
+git push origin main --tags
+```
+
+### Rollback
+
+- Commit ruim ainda não lançado: `git revert <sha>`
+- Release com bug: reverter o commit problemático, criar nova versão `PATCH`, actualizar `CHANGELOG.md` e publicar nova tag
+- Tag criada por engano antes de publicar: `git tag -d vX.Y.Z`
+- Tag já enviada por engano: `git push origin :refs/tags/vX.Y.Z` apenas se a equipa confirmar que ninguém consumiu a tag
+
+Mais detalhes: `docs/RELEASE.md`.
 
 ---
 
