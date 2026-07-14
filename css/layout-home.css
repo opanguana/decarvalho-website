@@ -2113,6 +2113,19 @@ body.layout-home .o-hero.o-hero--immersive .o-hero-sub {
   transform: translateY(0);
 }
 
+.o-consultorias-destaque-cta.o-btn {
+  display: flex;
+  margin-inline: auto;
+  width: min(100%, 320px);
+}
+
+@media (min-width: 480px) {
+  .o-consultorias-destaque-cta.o-btn {
+    width: fit-content;
+    max-width: 100%;
+  }
+}
+
 .o-btn-secondary {
   background: transparent;
   color: var(--accent);
