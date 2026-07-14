@@ -312,7 +312,7 @@ Responsável por:
 - **Pills de navegação** (Quem somos) — spy ao scroll com `IntersectionObserver`
 - **FAQ** (subpáginas) — fecha outros `<details>` ao abrir um
 - **Barra de progresso de leitura** — percentagem de scroll no topo
-- **Protecção de conteúdo** — bloqueia copy/cut/contextmenu/Ctrl+C fora de zonas `.allow-copy`
+- **Interações nativas** — mantém clique direito, seleção e cópia disponíveis em todo o site
 - **Formulário de contacto** — previne submit, mostra spinner, redirige para email/WhatsApp
 - **Pré-preenchimento de formulário** — lê `?origem=` da URL e preenche mensagem + exibe banner contextual
 
@@ -441,16 +441,9 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 X-XSS-Protection: 1; mode=block
 ```
 
-### Protecção de conteúdo
+### Interações nativas
 
-O script bloqueia:
-- `Ctrl+C` / `Cmd+C` (copy)
-- `Ctrl+X` / `Cmd+X` (cut)
-- `Ctrl+U` / `Cmd+U` (view source)
-- `Ctrl+S` / `Cmd+S` (save)
-- Clique direito (contextmenu)
-
-Excepções: zonas `.allow-copy`, links `mailto:`, `tel:`, `wa.me`, e campos de formulário.
+O site preserva o comportamento nativo do navegador: clique direito, seleção de texto, cópia, guardar página e ver código-fonte continuam disponíveis.
 
 ### Dados pessoais
 

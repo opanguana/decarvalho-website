@@ -2607,38 +2607,6 @@ body.subpage .contact-section .contact-item-icon .contact-item-icon-svg svg {
   margin-top: 0.15rem;
 }
 
-/* Dificulta seleção e cópia de textos públicos do site */
-body.no-copy h1,
-body.no-copy h2,
-body.no-copy h3,
-body.no-copy h4,
-body.no-copy h5,
-body.no-copy h6,
-body.no-copy p,
-body.no-copy li,
-body.no-copy blockquote,
-body.no-copy .btn,
-body.no-copy .o-testimonial-slide {
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-body.no-copy input,
-body.no-copy textarea,
-body.no-copy [contenteditable="true"] {
-  user-select: text;
-  -webkit-user-select: text;
-}
-
-body.no-copy .allow-copy,
-body.no-copy .allow-copy *,
-body.no-copy a[href^="mailto:"],
-body.no-copy a[href^="tel:"],
-body.no-copy a[href^="https://wa.me/"] {
-  user-select: text;
-  -webkit-user-select: text;
-}
-
 .contact-item-icon-wa {
   color: #25D366 !important;
 }
@@ -2687,6 +2655,7 @@ body.no-copy a[href^="https://wa.me/"] {
 .footer-links {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-md);
 }
 

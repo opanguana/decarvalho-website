@@ -3716,24 +3716,28 @@ body.has-urgency-bar .o-hero {
 }
 
 @media (max-width: 480px) {
-  .o-float-actions {
+  body.layout-home .o-float-actions {
     bottom: max(1rem, env(safe-area-inset-bottom));
     left: 50%;
     right: auto;
-    width: min(calc(100dvw - 2rem), 42rem);
-    max-width: none;
+    width: auto;
     transform: translate3d(-50%, 0, 0);
   }
-  .o-float-cta {
+  body.layout-home .o-float-cta {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    width: 100%;
+    align-items: center;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    max-width: none;
+    width: auto;
   }
-  .o-float-cta-btn {
+  body.layout-home .o-float-cta-btn {
     justify-content: center;
-    width: 100%;
-    max-width: 100%;
+    width: auto;
+    max-width: calc(100vw - 2rem);
   }
 
   .o-consultoria-preview {

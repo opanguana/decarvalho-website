@@ -1507,36 +1507,6 @@
     }
   })();
 
-  // Proteção básica de conteúdo: dificulta cópia direta de textos públicos
-  (function setupContentProtection() {
-    document.body.classList.add('no-copy');
-    function isCopyAllowedTarget(target) {
-      return !!(target && target.closest('.allow-copy, a[href^="mailto:"], a[href^="tel:"], a[href^="https://wa.me/"]'));
-    }
-    function isEditableTarget(target) {
-      return !!(target && target.closest('input, textarea, [contenteditable="true"]'));
-    }
-    document.addEventListener('copy', function (e) {
-      if (isEditableTarget(e.target) || isCopyAllowedTarget(e.target)) return;
-      e.preventDefault();
-    });
-    document.addEventListener('cut', function (e) {
-      if (isEditableTarget(e.target) || isCopyAllowedTarget(e.target)) return;
-      e.preventDefault();
-    });
-    document.addEventListener('contextmenu', function (e) {
-      if (isEditableTarget(e.target) || isCopyAllowedTarget(e.target)) return;
-      e.preventDefault();
-    });
-    document.addEventListener('keydown', function (e) {
-      if (isEditableTarget(e.target) || isCopyAllowedTarget(e.target)) return;
-      var key = (e.key || '').toLowerCase();
-      if ((e.ctrlKey || e.metaKey) && (key === 'c' || key === 'x' || key === 'u' || key === 's')) {
-        e.preventDefault();
-      }
-    });
-  })();
-
   // Contact form — validação por campo + feedback de submissão
   if (contactForm) {
     // Configuração dos campos com mensagens de erro

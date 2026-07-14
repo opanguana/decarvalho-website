@@ -124,6 +124,19 @@ async function checkJavaScriptSyntax() {
   }
 }
 
+async function checkNativeInteractionAccess() {
+  const scriptContent = await readFile(path.join(root, 'js', 'script.js'), 'utf8');
+  const cssContent = await readFile(path.join(root, 'css', 'styles.css'), 'utf8');
+
+  if (/addEventListener\(\s*['"]contextmenu['"]/.test(scriptContent) || /oncontextmenu\s*=/.test(scriptContent)) {
+    fail('Do not block the native right-click context menu.');
+  }
+
+  if (/classList\.add\(\s*['"]no-copy['"]/.test(scriptContent) || /body\.no-copy/.test(cssContent)) {
+    fail('Do not disable native selection or copy behavior with no-copy rules.');
+  }
+}
+
 function isExternalOrSpecialReference(reference) {
   return /^(?:https?:|mailto:|tel:|data:|javascript:|#)/i.test(reference);
 }
@@ -174,6 +187,7 @@ async function checkLint() {
   await checkJsonSyntax();
   await checkJavaScriptSyntax();
   await checkHtmlReferences();
+  await checkNativeInteractionAccess();
 }
 
 if (runAll || args.has('format')) {
