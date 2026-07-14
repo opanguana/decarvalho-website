@@ -707,10 +707,13 @@ npm run dev
 ```bash
 npm run lint
 npm test
+npm run responsive:check
 npm run build
 ```
 
 O build gera `dist/` apenas como artefacto local/CI. O script recusa sobrescrever um `dist/` que não tenha sido gerado pelo próprio script.
+
+`npm run responsive:check` valida guardrails de código para as larguras-alvo `320`, `375`, `414`, `768`, `1024`, `1280` e `1440`. Como não substitui teste visual em browser real, usar também a checklist em `docs/RESPONSIVE-QA.md` antes de releases com alterações de layout.
 
 ### Segredos e configuração local
 
