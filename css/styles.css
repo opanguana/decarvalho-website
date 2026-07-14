@@ -180,6 +180,8 @@ img.footer-logo {
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Skip link — acessibilidade (WCAG 2.2) */
@@ -225,6 +227,7 @@ body {
   line-height: 1.6;
   color: var(--text);
   background: var(--bg);
+  max-width: 100%;
   overflow-x: hidden;
   /* ALKA: fundo claro e institucional */
   background-image:
@@ -234,6 +237,18 @@ body {
     linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 55%, var(--bg-alt) 100%);
   background-attachment: fixed;
   min-height: 100vh;
+}
+
+main {
+  overflow-x: hidden;
+}
+
+@supports (overflow: clip) {
+  html,
+  body,
+  main {
+    overflow-x: clip;
+  }
 }
 
 /* Visual polish para subpáginas: mantém legibilidade, adiciona acabamento */

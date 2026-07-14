@@ -64,12 +64,16 @@ function checkCssGuardrails(globalCss, homeCss) {
 
   requirePattern('CSS must include text wrapping guardrails.', combinedCss, /overflow-wrap:\s*(?:break-word|anywhere)/);
   requirePattern('CSS grids must use capped minimum widths for narrow viewports.', combinedCss, /minmax\(min\(100%,\s*\d+px\),\s*1fr\)/);
+  requirePattern('Document root must prevent page-level horizontal scrolling.', globalCss, /html\s*\{[\s\S]*?overflow-x:\s*hidden[\s\S]*?body\s*\{[\s\S]*?overflow-x:\s*hidden[\s\S]*?main\s*\{[\s\S]*?overflow-x:\s*hidden/);
+  requirePattern('Supported browsers should clip page-level horizontal overflow.', globalCss, /@supports \(overflow:\s*clip\)\s*\{[\s\S]*?html,[\s\S]*?body,[\s\S]*?main\s*\{[\s\S]*?overflow-x:\s*clip/);
   requirePattern('Subpage mobile navigation must be present.', globalCss, /\.nav-mobile\s*\{/);
   requirePattern('Homepage mobile navigation must be present.', homeCss, /\.o-nav-mobile\s*\{/);
   requirePattern('Fixed CTAs must stay centered on narrow viewports.', homeCss, /body\.layout-home \.o-float-actions\s*\{[\s\S]*?left:\s*50%[\s\S]*?width:\s*auto[\s\S]*?transform:\s*translate3d\(-50%,\s*0,\s*0\)/);
   requirePattern('Homepage floating CTA must reset subpage mobile offsets.', homeCss, /body\.layout-home \.o-float-cta\s*\{[\s\S]*?right:\s*auto[\s\S]*?bottom:\s*auto[\s\S]*?left:\s*auto[\s\S]*?width:\s*auto/);
   requirePattern('Homepage floating CTA must preserve intrinsic button width.', homeCss, /body\.layout-home \.o-float-cta-btn\s*\{[\s\S]*?width:\s*auto/);
   requirePattern('Homepage credentials grid must avoid mobile min-content overflow.', homeCss, /@media \(max-width: 768px\)[\s\S]*?\.o-credentials-grid\s*\{[\s\S]*?grid-template-columns:\s*repeat\(2,\s*minmax\(0,\s*1fr\)\)/);
+  requirePattern('Testimonial carousel overflow must stay scoped to its container.', homeCss, /\.o-testimonials-viewport\s*\{[\s\S]*?overflow:\s*hidden/);
+  requirePattern('Partner marquee overflow must stay scoped to its container.', homeCss, /\.o-partners-marquee-wrapper\s*\{[\s\S]*?overflow:\s*hidden/);
   requirePattern('Partner marquee must use compositor-friendly transforms.', homeCss, /\.o-partners-marquee\s*\{[\s\S]*?will-change:\s*transform[\s\S]*?@keyframes o-marquee-scroll[\s\S]*?translate3d/);
   requirePattern('Subpage footer links must stay centered.', globalCss, /\.footer-links\s*\{[\s\S]*?justify-content:\s*center/);
   requirePattern('Subpage footer links must have emphasized link color.', globalCss, /\.footer-links a\s*\{[\s\S]*?color:\s*var\(--brand\)[\s\S]*?font-weight:\s*600/);
