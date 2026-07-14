@@ -3717,21 +3717,23 @@ body.has-urgency-bar .o-hero {
 
 @media (max-width: 480px) {
   .o-float-actions {
-    bottom: 1rem;
+    bottom: max(1rem, env(safe-area-inset-bottom));
     left: 50%;
     right: auto;
-    width: calc(100% - 2rem);
-    max-width: 42rem;
-    transform: translateX(-50%);
+    width: min(calc(100dvw - 2rem), 42rem);
+    max-width: none;
+    transform: translate3d(-50%, 0, 0);
   }
   .o-float-cta {
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    width: 100%;
   }
   .o-float-cta-btn {
     justify-content: center;
     width: 100%;
+    max-width: 100%;
   }
 
   .o-consultoria-preview {

@@ -66,9 +66,10 @@ function checkCssGuardrails(globalCss, homeCss) {
   requirePattern('CSS grids must use capped minimum widths for narrow viewports.', combinedCss, /minmax\(min\(100%,\s*\d+px\),\s*1fr\)/);
   requirePattern('Subpage mobile navigation must be present.', globalCss, /\.nav-mobile\s*\{/);
   requirePattern('Homepage mobile navigation must be present.', homeCss, /\.o-nav-mobile\s*\{/);
-  requirePattern('Fixed CTAs must stay centered on narrow viewports.', homeCss, /\.o-float-actions\s*\{[\s\S]*?left:\s*50%[\s\S]*?width:\s*calc\(100% - 2rem\)[\s\S]*?transform:\s*translateX\(-50%\)/);
+  requirePattern('Fixed CTAs must stay centered on narrow viewports.', homeCss, /\.o-float-actions\s*\{[\s\S]*?left:\s*50%[\s\S]*?width:\s*min\(calc\(100dvw - 2rem\),\s*42rem\)[\s\S]*?transform:\s*translate3d\(-50%,\s*0,\s*0\)/);
   requirePattern('Homepage credentials grid must avoid mobile min-content overflow.', homeCss, /@media \(max-width: 768px\)[\s\S]*?\.o-credentials-grid\s*\{[\s\S]*?grid-template-columns:\s*repeat\(2,\s*minmax\(0,\s*1fr\)\)/);
   requirePattern('Partner marquee must use compositor-friendly transforms.', homeCss, /\.o-partners-marquee\s*\{[\s\S]*?will-change:\s*transform[\s\S]*?@keyframes o-marquee-scroll[\s\S]*?translate3d/);
+  requirePattern('Subpage footer links must have emphasized link color.', globalCss, /\.footer-links a\s*\{[\s\S]*?color:\s*var\(--brand\)[\s\S]*?font-weight:\s*600/);
   requirePattern('Contact page must offset fixed header on narrow viewports.', globalCss, /\.contact-section\s*\{[\s\S]*?scroll-margin-top:\s*calc\(72px \+ var\(--space-md\)\)[\s\S]*?@media \(max-width: 480px\)[\s\S]*?\.contact-section\s*\{[\s\S]*?padding:\s*calc\(72px \+ 2rem\) 0 2rem/);
 
   const fixedGridMinimums = combinedCss.match(/minmax\(\s*(\d{3,})px\s*,\s*1fr\s*\)/g) || [];
