@@ -8,7 +8,8 @@
     "preview": "serve . --listen 4173",
     "lint": "node tools/check-project.mjs --lint --format",
     "format:check": "node tools/check-project.mjs --format",
-    "test": "node tools/check-project.mjs --smoke",
+    "test": "node tools/check-project.mjs --smoke && npm run responsive:check",
+    "responsive:check": "node tools/check-responsive.mjs",
     "build": "node tools/build-static.mjs"
   },
   "engines": {
