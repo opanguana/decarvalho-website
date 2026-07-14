@@ -3303,7 +3303,7 @@ body.no-copy a[href^="https://wa.me/"] {
   bottom: 1.5rem;
   right: 1.5rem;
   left: auto;
-  max-width: calc(100vw - 3rem);
+  max-width: calc(100% - 3rem);
   z-index: 999;
   opacity: 0;
   visibility: hidden;
@@ -3465,7 +3465,7 @@ body.no-copy a[href^="https://wa.me/"] {
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
     width: 100%;
-    max-width: 100vw;
+    max-width: 100%;
   }
 
   .nav-mobile.open {
