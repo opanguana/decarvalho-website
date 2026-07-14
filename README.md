@@ -712,6 +712,16 @@ npm run build
 
 O build gera `dist/` apenas como artefacto local/CI. O script recusa sobrescrever um `dist/` que não tenha sido gerado pelo próprio script.
 
+### Segredos e configuração local
+
+O site estático actual não requer variáveis de ambiente em runtime.
+
+- usar `.env.example` como contrato seguro de configuração
+- copiar para `.env` apenas quando integrações futuras exigirem segredos locais
+- nunca commitar `.env` ou ficheiros equivalentes com credenciais reais
+- manter segredos de produção na Vercel ou no cofre aprovado da equipa
+- antes de abrir PR, rever alterações com `git diff --staged` e executar scanning básico conforme `SECURITY.md`
+
 ### Branches e PRs
 
 1. Actualizar a branch principal: `git switch main && git pull --ff-only`
